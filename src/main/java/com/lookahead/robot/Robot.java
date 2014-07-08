@@ -5,18 +5,12 @@ package com.lookahead.robot;
  */
 public interface Robot {
     /**
-     * Return robots x coordinate on the table.
+     * Return robots coordinate on the table.
      *
-     * @return x coordinate
+     * @return coordinate on the table
+     * @return null if robot isn't placed on the table
      */
-    int getX();
-
-    /**
-     * Return robots y coordinate on the table.
-     *
-     * @return y coordinate
-     */
-    int getY();
+    Coordinate getCurrentCoordinate();
 
     /**
      * Returns direction which is robot facing.
