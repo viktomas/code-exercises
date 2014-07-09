@@ -10,7 +10,14 @@ public interface Robot {
      * @return coordinate on the table
      * @return null if robot isn't placed on the table
      */
-    Coordinate getCurrentCoordinate();
+    Coordinate getCoordinate();
+
+    /**
+     * Sets new coordinate to the robot.
+     *
+     * @param coordinate new robots coordinate. Can't be null
+     */
+    void setCoordinate(Coordinate coordinate);
 
     /**
      * Returns direction which is robot facing.
@@ -18,6 +25,13 @@ public interface Robot {
      * @return direction which is robot facing
      */
     Direction getDirection();
+
+    /**
+     * Sets new direction to the robot.
+     *
+     * @param direction  new robot's direction.
+     */
+    void setDirection(Direction direction);
 
     /**
      * Puts robot on given table.
