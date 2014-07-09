@@ -53,4 +53,30 @@ public class SimpleRobot implements Robot {
     public Table getTable() {
         return table;
     }
+
+    /*
+    EQUALS AND HASH CODE AUTOMATICALLY GENERATED. REGENERATE WITH EVERY FIELD CHANGE
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        SimpleRobot that = (SimpleRobot) o;
+
+        if (currentCoordinate != null ? !currentCoordinate.equals(that.currentCoordinate) : that.currentCoordinate != null)
+            return false;
+        if (direction != that.direction) return false;
+        if (table != null ? !table.equals(that.table) : that.table != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = currentCoordinate != null ? currentCoordinate.hashCode() : 0;
+        result = 31 * result + (direction != null ? direction.hashCode() : 0);
+        result = 31 * result + (table != null ? table.hashCode() : 0);
+        return result;
+    }
 }

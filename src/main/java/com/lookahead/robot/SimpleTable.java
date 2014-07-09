@@ -26,4 +26,28 @@ public class SimpleTable implements Table {
         boolean rightY = coordinate.getY() >= MIN_Y && coordinate.getY() <= maxY;
         return rightX && rightY;
     }
+
+    /*
+    EQUALS AND HASH CODE AUTOMATICALLY GENERATED. REGENERATE WITH EVERY FIELD CHANGE
+     */
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        SimpleTable that = (SimpleTable) o;
+
+        if (maxX != that.maxX) return false;
+        if (maxY != that.maxY) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = maxX;
+        result = 31 * result + maxY;
+        return result;
+    }
 }
