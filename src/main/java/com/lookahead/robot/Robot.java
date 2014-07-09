@@ -18,4 +18,19 @@ public interface Robot {
      * @return direction which is robot facing
      */
     Direction getDirection();
+
+    /**
+     * Puts robot on given table.
+     *
+     * @param table table on which robot is put on
+     */
+    void putOnTable(Table table);
+
+    /**
+     * Returns table on which robot is placed or null, if robot hasn't been placed on table yet.
+     *
+     * @return table on which robot is placed
+     * @return null if robot hasn't been placed on a table yet
+     */
+    Table getTable();
 }
