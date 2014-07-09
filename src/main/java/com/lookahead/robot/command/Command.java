@@ -9,4 +9,6 @@ public interface Command {
      * Executes command.
      */
     void execute();
+
+    boolean isValid();
 }
