@@ -45,7 +45,7 @@ public final class Coordinate {
      * @param addition coordinate to be added to this one
      * @return newly created added coordinate
      */
-    Coordinate addCoordinate(Coordinate addition){
+    public Coordinate addCoordinate(Coordinate addition){
         int newX = x + addition.getX();
         int newY = y + addition.getY();
         return new Coordinate(newX,newY);
