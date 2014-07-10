@@ -1,11 +1,7 @@
 package com.lookahead.robot.command;
 
 
-import com.lookahead.robot.Coordinate;
-import com.lookahead.robot.Direction;
-import com.lookahead.robot.Robot;
-import com.lookahead.robot.SimpleRobot;
-import com.lookahead.robot.io.Output;
+import com.lookahead.robot.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -18,11 +14,11 @@ public class ReportCommandTest {
     /**
      * Mock output object
      */
-    StringOutput stringOutput;
+    TestUtils.StringOutput stringOutput;
 
     @Before
     public void init(){
-        stringOutput = new StringOutput();
+        stringOutput = new TestUtils.StringOutput();
     }
 
 
@@ -48,33 +44,4 @@ public class ReportCommandTest {
         assertEquals("Command output is wrong!", "3,2,SOUTH", stringOutput.getLine());
     }
 
-
-    /**
-     * Test output class used as mock for testing report command.
-     */
-    private static class StringOutput implements Output {
-
-        /**
-         * Variable holding written output.
-         */
-        private String line;
-
-        @Override
-        public void writeLine(String line) {
-            this.line = line;
-        }
-
-        @Override
-        public void close() {
-
-        }
-
-        /**
-         * Gets written output.
-         * @return
-         */
-        public String getLine(){
-            return line;
-        }
-    }
 }

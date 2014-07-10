@@ -1,12 +1,10 @@
 package com.lookahead.robot.lexer;
 
 import com.lookahead.robot.Direction;
+import com.lookahead.robot.TestUtils;
 import com.lookahead.robot.io.Input;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.util.LinkedList;
-import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -78,10 +76,10 @@ public class SimpleLexerTest {
      */
     @Test
     public void testValidPlace(){
-        assertEquals(buildPlace(10,20,Direction.SOUTH), fetchCmd("PLACE,10,20,SOUTH"));
-        assertEquals(buildPlace(0,0,Direction.EAST), fetchCmd("PLACE,0,0,EAST"));
-        assertEquals(buildPlace(1,3,Direction.NORTH), fetchCmd("PLACE,1,3,NORTH"));
-        assertEquals(buildPlace(111,3,Direction.WEST), fetchCmd("PLACE,111,3,WEST"));
+        assertEquals(TestUtils.buildRawPlace(10, 20, Direction.SOUTH), fetchCmd("PLACE,10,20,SOUTH"));
+        assertEquals(TestUtils.buildRawPlace(0, 0, Direction.EAST), fetchCmd("PLACE,0,0,EAST"));
+        assertEquals(TestUtils.buildRawPlace(1, 3, Direction.NORTH), fetchCmd("PLACE,1,3,NORTH"));
+        assertEquals(TestUtils.buildRawPlace(111, 3, Direction.WEST), fetchCmd("PLACE,111,3,WEST"));
     }
 
 
@@ -94,21 +92,6 @@ public class SimpleLexerTest {
     private RawCommand fetchCmd(String command){
         stringInput.setLine(command);
         return lexer.fetchCommand();
-    }
-
-    /**
-     * Helper method for building raw place command
-     * @param x x coordinate
-     * @param y y coordinate
-     * @param direction direction
-     * @return raw command from given parameters
-     */
-    private RawCommand buildPlace(int x, int y, Direction direction){
-        List<Object> args = new LinkedList<>();
-        args.add(x);
-        args.add(y);
-        args.add(direction);
-        return new RawCommand(CommandType.PLACE,args);
     }
 
     /**
