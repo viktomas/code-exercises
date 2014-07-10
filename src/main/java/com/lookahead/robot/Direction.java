@@ -4,10 +4,10 @@ package com.lookahead.robot;
  * Cardinal direction.
  */
 public enum Direction {
-    NORTH(0,1),
-    EAST(1,0),
-    SOUTH(0,-1),
-    WEST(-1,0);
+    NORTH   (0,1,  "NORTH"),
+    EAST    (1,0,  "EAST"),
+    SOUTH   (0,-1, "SOUTH"),
+    WEST    (-1,0, "WEST");
 
     /**
      * Single coordinate for showing direction on grid.
@@ -15,12 +15,18 @@ public enum Direction {
     private final Coordinate stepAddition;
 
     /**
+     * Human readable name of the direction
+     */
+    private final String name;
+
+    /**
      * Constructor takes integer step showing direction on grid and creates enum.
      * @param x addition of X coordinate for this direction
      * @param y addition of Y coordinate for this direction
      */
-    Direction(int x, int y) {
+    Direction(int x, int y, String name) {
         this.stepAddition = new Coordinate(x,y);
+        this.name = name;
     }
 
     /**
@@ -31,5 +37,14 @@ public enum Direction {
      */
     public Coordinate getStepAddition() {
         return stepAddition;
+    }
+
+    /**
+     * Human readable name of the direction
+     *
+     * @return Human readable name of the direction
+     */
+    public String getName() {
+        return name;
     }
 }
