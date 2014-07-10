@@ -1,0 +1,30 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <!-- Lexer bean -->
+    <bean name="lexer" class="com.lookahead.robot.lexer.SimpleLexer">
+        <property name="input" ref="input"/>
+    </bean>
+
+    <!-- Table according to specification 5x5 pieces -->
+    <bean name="table" class="com.lookahead.robot.SimpleTable">
+        <constructor-arg index="0" value="4"/>
+        <constructor-arg index="1" value="4"/>
+    </bean>
+
+    <!-- Standard output bean -->
+    <bean name="output" class="com.lookahead.robot.io.StandardOutput"/>
+
+    <!-- Simple robot bean -->
+    <bean name="robot" class="com.lookahead.robot.SimpleRobot"/>
+
+    <!-- Parser bean, which is automaticaly executed with the init-method mechanism -->
+    <bean name="parser" class="com.lookahead.robot.parser.SimpleParser" init-method="run">
+        <property name="lexer" ref="lexer"/>
+        <property name="robot" ref="robot"/>
+        <property name="output" ref="output"/>
+        <property name="table" ref="table"/>
+    </bean>
+</beans>
