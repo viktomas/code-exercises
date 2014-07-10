@@ -1,7 +1,5 @@
 package com.lookahead.robot.io;
 
-import java.io.IOException;
-
 /**
  * Represents an input interface to the application. Don't forget to close it after use!
  */
@@ -17,6 +15,6 @@ public interface Input{
     /**
      * Closes the underlying input stream.
      */
-    void close() throws IOException;
+    void close();
 
 }

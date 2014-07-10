@@ -53,4 +53,28 @@ public final class RawCommand {
     public List<Object> getArgs() {
         return args;
     }
+
+    /*
+    EQUALS AND HASH CODE AUTOMATICALLY GENERATED. REGENERATE WITH EVERY FIELD CHANGE
+     */
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        RawCommand that = (RawCommand) o;
+
+        if (args != null ? !args.equals(that.args) : that.args != null) return false;
+        if (commandType != that.commandType) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = commandType != null ? commandType.hashCode() : 0;
+        result = 31 * result + (args != null ? args.hashCode() : 0);
+        return result;
+    }
 }

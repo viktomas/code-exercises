@@ -47,4 +47,19 @@ public enum Direction {
     public String getName() {
         return name;
     }
+
+    /**
+     * It returns direction from string value.
+     * @param directionName string direction NOT NULL
+     * @return null if direction doesn't exist for a string
+     * @return direction representation of string
+     */
+    public static Direction getByName(String directionName){
+        for(Direction direction : Direction.values()){
+            if(direction.getName().equals(directionName)){
+                return direction;
+            }
+        }
+        return null;
+    }
 }
