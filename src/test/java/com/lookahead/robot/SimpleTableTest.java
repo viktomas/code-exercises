@@ -12,7 +12,7 @@ public class SimpleTableTest {
 
     @Before
     public void init(){
-        SimpleTable simpleTable = new SimpleTable(4,4);
+        simpleTable = new SimpleTable(4,4);
     }
 
     /**
