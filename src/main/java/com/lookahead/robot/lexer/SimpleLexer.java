@@ -15,7 +15,7 @@ public class SimpleLexer implements Lexer {
     /**
      * Patern for proper PLACE command syntax with groups for numbers and direction
      */
-    private static final Pattern VALID_PLACE_PATTERN = Pattern.compile("^PLACE,(\\d+),(\\d+),(NORTH|EAST|SOUTH|WEST)$");
+    private static final Pattern VALID_PLACE_PATTERN = Pattern.compile("^PLACE (\\d+),(\\d+),(NORTH|EAST|SOUTH|WEST)$");
 
     /**
      * Prepared invalid command instance
