@@ -22,7 +22,7 @@ public class SimpleRobot implements Robot {
     }
 
     /**
-     * Sets coordinate on the table to the robot. Can't be set if robot is not on a table.
+     * Sets coordinate on the table to the robot. Can't be set if robot is not on a table. Has to be on the table.
      *
      * @param coordinate new robots coordinate.
      */
@@ -30,6 +30,7 @@ public class SimpleRobot implements Robot {
     public void setCoordinate(Coordinate coordinate) {
         Validate.notNull(table);
         Validate.notNull(coordinate);
+        Validate.isTrue(table.isOnTable(coordinate));
         this.currentCoordinate = coordinate;
     }
 
@@ -40,13 +41,16 @@ public class SimpleRobot implements Robot {
 
     @Override
     public void setDirection(Direction direction) {
+        Validate.notNull(table);
         Validate.notNull(direction);
         this.direction = direction;
     }
 
     @Override
-    public void putOnTable(Table table) {
+    public void putOnTable(Table table, Coordinate coordinate, Direction direction) {
         this.table = table;
+        setCoordinate(coordinate);
+        setDirection(direction);
     }
 
     @Override

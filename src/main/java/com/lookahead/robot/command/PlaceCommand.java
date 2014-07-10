@@ -51,9 +51,7 @@ public class PlaceCommand implements Command {
     @Override
     public void execute() {
         if(isValid()) {
-            robot.putOnTable(table);
-            robot.setCoordinate(coordinate);
-            robot.setDirection(direction);
+            robot.putOnTable(table, coordinate, direction);
         }
     }
 

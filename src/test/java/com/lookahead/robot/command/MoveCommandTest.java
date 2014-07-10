@@ -18,10 +18,7 @@ public class MoveCommandTest {
 
     @Before
     public void init(){
-        robotOnEdge = new SimpleRobot();
-        robotOnEdge.putOnTable(new SimpleTable(4,4));
-        robotOnEdge.setCoordinate(new Coordinate(0,0));
-        robotOnEdge.setDirection(Direction.SOUTH);
+        robotOnEdge = CommandTestHelper.getRobotOnTheTable(Direction.SOUTH);
     }
 
 

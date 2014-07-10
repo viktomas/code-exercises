@@ -10,8 +10,7 @@ public class PlaceCommandTest {
 
     @Test
     public void testRobotAlreadyHaveTable(){
-        Robot robot = new SimpleRobot();
-        robot.putOnTable(new SimpleTable(3,3));
+        Robot robot = CommandTestHelper.getRobotOnTheTable();
         PlaceCommand cmd = new PlaceCommand(new SimpleTable(4,4),robot,new Coordinate(0,0), Direction.EAST);
         assertFalse("Robot has already table but command is still valid.",cmd.isValid());
     }
