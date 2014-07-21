@@ -32,6 +32,18 @@ describe Coordinate do
       expect(addition.x).to eq(6)
       expect(addition.y).to eq(5)
     end
+  end
 
+  context 'step_addition_for' do
+    it 'returns proper values for valid parameters' do
+      expect(Coordinate.step_addition_for(:north)).to eq(Coordinate.new(0,1))
+      expect(Coordinate.step_addition_for(:east)).to eq(Coordinate.new(1,0))
+      expect(Coordinate.step_addition_for(:south)).to eq(Coordinate.new(0,-1))
+      expect(Coordinate.step_addition_for(:west)).to eq(Coordinate.new(-1,0))
+    end
+
+    it 'raises error when unknown direction is passed' do
+      expect {Coordinate.step_addition_for(:unknown)}.to raise_error
+    end
   end
 end
