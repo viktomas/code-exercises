@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+
+require File.dirname(__FILE__) + '/../lib/ruby_toy_robot.rb'
+
+#user can put max one argument
+if ARGV.size > 1
+  puts <<-eos
+    Ruby Toy Robot
+    Simple program intednded as a demonstration of defelopment skills.
+    USAGE:
+    no arguments - reads commands from standard input
+    1 argument - takes it as a name of file with commands
+  eos
+  exit 1
+end
+# run app itself
+RubyToyRobot::App.run(ARGV)
