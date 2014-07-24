@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 
-require File.dirname(__FILE__) + '/../lib/ruby_toy_robot.rb'
+require 'bundler/setup'
+Bundler.setup
+require 'ruby_toy_robot'
 
 #user can put max one argument
 if ARGV.size > 1

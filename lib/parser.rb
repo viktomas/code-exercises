@@ -1,3 +1,4 @@
+require 'command'
 # Parser transforms tokens from lexer into real commands
 class Parser
 
