@@ -27,3 +27,13 @@ Running the application
 All test are executed by command:
 
     mvn test
+
+
+Main entry class and its behavior
+----------------------------------
+Main library class is BowlingGame, which has 2 important public methods
+
+1. `#roll(int noOfPins)` which allows the user of the class to add new rolles.
+2. `#score ()` which returns the current score of the game.
+
+The instance of `BowlingGame` takes and processes rolls until the game is over. Then it is still possible to call `#roll()` method, but without any effect on `BowlingGame` instance.
