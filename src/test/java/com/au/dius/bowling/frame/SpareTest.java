@@ -23,23 +23,23 @@ public class SpareTest {
     }
 
     @Test
-    public void testThatItWorksWithoutDescendant(){
+    public void testThatItWorksWithoutSuccessor(){
         Frame frame = new Spare(4,6);
         assertEquals(10,frame.getScore());
     }
 
     @Test
-    public void testThatItUsesDescendant(){
+    public void testThatItUsesSuccessor(){
         Frame frame = new Spare(3,7);
-        frame.addDescendant(new Spare(6,4));
+        frame.addSuccessor(new Spare(6,4));
         assertEquals(frame.getScore(),16);
     }
 
     @Test
-    public void testThatItAssignsDescendantJustOnce(){
+    public void testThatItAssignsSuccessorJustOnce(){
         Frame frame = new Spare(3,7);
-        frame.addDescendant(new Spare(6,4));
-        frame.addDescendant(new Spare(1,9));
+        frame.addSuccessor(new Spare(6,4));
+        frame.addSuccessor(new Spare(1,9));
         assertEquals(frame.getScore(), 16);
     }
 }

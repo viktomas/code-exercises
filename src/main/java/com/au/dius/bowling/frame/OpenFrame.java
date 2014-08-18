@@ -36,8 +36,8 @@ public class OpenFrame implements Frame{
     }
 
     @Override
-    public void addDescendant(Frame frame) {
-        //OpenFrame doesn't use descendant frames to compute score
+    public void addSuccessor(Frame frame) {
+        //OpenFrame doesn't use successor frames to compute score
     }
 
     @Override

@@ -18,7 +18,7 @@ public enum EmptyFrame implements Frame {
     }
 
     @Override
-    public void addDescendant(Frame frame) {
+    public void addSuccessor(Frame frame) {
 
     }
 

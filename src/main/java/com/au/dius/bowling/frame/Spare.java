@@ -20,31 +20,31 @@ public class Spare implements Frame {
     private int second;
 
     /**
-     * Spare needs information about one descendant frame.
+     * Spare needs information about one successor frame.
      */
-    private Frame descendant;
+    private Frame successor;
 
     public Spare(int first, int second) {
         Validate.isTrue(first+second==10);
         this.first = first;
         this.second = second;
-        descendant = EmptyFrame.INSTANCE;
+        successor = EmptyFrame.INSTANCE;
     }
 
     /**
-     * Score equals 10 + first roll from descendant frame
+     * Score equals 10 + first roll from successor frame
      * @return score of this frame
      */
     @Override
     public int getScore() {
-        return 10 + descendant.getRolls().get(0);
+        return 10 + successor.getRolls().get(0);
     }
 
     @Override
-    public void addDescendant(Frame frame) {
-        // only if descendant wasn't assigned before
-        if(EmptyFrame.INSTANCE.equals(descendant)){
-            descendant = frame;
+    public void addSuccessor(Frame frame) {
+        // only if successor wasn't assigned before
+        if(EmptyFrame.INSTANCE.equals(successor)){
+            successor = frame;
         }
     }
 
