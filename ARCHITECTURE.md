@@ -20,9 +20,9 @@ Factory has to distinguish between 3 cases:
 
 Standard usage of the factory is:
 
-1 call roll()
-2 check isReady() to know if we can create new Frame
-3 createFrame() if it is possible
+1. call `roll()`
+2. check `isReady()` to know if we can create new Frame
+3. `createFrame()` if it is possible
 
 ### FinishFrameFactory
 Special case of factory. The Game uses it instead of SimpleFrameFactory after 10nth frame.
