@@ -25,7 +25,7 @@ public class OpenFrame implements Frame{
      * @param second second roll
      */
     public OpenFrame(int first, int second){
-        Validate.inclusiveBetween(0,9,first+second);
+        Validate.inclusiveBetween(0,NMB_OF_PINS-1,first+second);
         this.first = first;
         this.second = second;
     }

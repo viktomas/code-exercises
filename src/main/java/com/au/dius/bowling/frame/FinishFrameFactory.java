@@ -1,7 +1,7 @@
 package com.au.dius.bowling.frame;
 
 /**
- * New type of factory which handles special case of game end.
+ * New type of factory which handles special case of the end of the game.
  */
 public class FinishFrameFactory extends SimpleFrameFactory{
 

@@ -25,7 +25,7 @@ public class Spare implements Frame {
     private Frame successor;
 
     public Spare(int first, int second) {
-        Validate.isTrue(first+second==10);
+        Validate.isTrue(first+second==NMB_OF_PINS);
         this.first = first;
         this.second = second;
         successor = EmptyFrame.INSTANCE;
@@ -37,7 +37,7 @@ public class Spare implements Frame {
      */
     @Override
     public int getScore() {
-        return 10 + successor.getRolls().get(0);
+        return NMB_OF_PINS + successor.getRolls().get(0);
     }
 
     @Override

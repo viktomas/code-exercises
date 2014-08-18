@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by vicek on 8/18/14.
+ * Stateful factory responsible for creating instances of Frames based on inserted rolls.
  */
 public class SimpleFrameFactory implements FrameFactory {
 

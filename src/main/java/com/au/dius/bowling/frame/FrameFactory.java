@@ -1,7 +1,7 @@
 package com.au.dius.bowling.frame;
 
 /**
- * Created by vicek on 8/18/14.
+ * Interface for all classes responsible for creating Frames for the game.
  */
 public interface FrameFactory {
     /**
