@@ -35,7 +35,7 @@ public class Strike implements Frame {
             successorRolls.addAll(successor.getRolls());
         }
         // separate important to us
-        List<Integer> importantRolls = successorRolls.subList(0,2);
+        List<Integer> importantRolls = successorRolls.subList(0,Math.min(2,successorRolls.size()));
 
         for(Integer roll : importantRolls){
             score += roll;
