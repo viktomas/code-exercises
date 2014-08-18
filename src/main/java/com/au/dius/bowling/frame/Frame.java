@@ -6,6 +6,12 @@ import java.util.List;
  * Represents one frame in scoreboard.
  */
 public interface Frame {
+
+    /**
+     * Maximum number of pins in the game.
+     */
+    public static final int NMB_OF_PINS = 10;
+
     /**
      * Computes score. If it is a strike or spare, score can be incomplete(if all successors are not present).
      *
