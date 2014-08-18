@@ -7,13 +7,13 @@ import static org.junit.Assert.*;
 /**
  * Tests that frame factory produces frames properly
  */
-public class FrameFactoryTest {
+public class SimpleFrameFactoryTest {
 
-    private FrameFactory factory;
+    private SimpleFrameFactory factory;
 
     @Before
     public void setUp(){
-        factory = new FrameFactory();
+        factory = new SimpleFrameFactory();
     }
 
     @Test
@@ -37,7 +37,7 @@ public class FrameFactoryTest {
         factory.roll(2);
         assertTrue(factory.isReady());
         Frame frame = factory.createFrame();
-        assertEquals(10,frame.getScore());
+        assertEquals(10, frame.getScore());
         frame.addSuccessor(new OpenFrame(1,2));
         assertEquals(11,frame.getScore());
     }

@@ -1,7 +1,9 @@
 package com.au.dius.bowling;
 
+import com.au.dius.bowling.frame.FinishFrameFactory;
 import com.au.dius.bowling.frame.Frame;
 import com.au.dius.bowling.frame.FrameFactory;
+import com.au.dius.bowling.frame.SimpleFrameFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +18,7 @@ public class BowlingGame {
 
     public BowlingGame() {
         frames = new ArrayList<>();
-        factory = new FrameFactory();
+        factory = new SimpleFrameFactory();
     }
 
     /**
@@ -26,11 +28,16 @@ public class BowlingGame {
      */
     public void roll(int noOfPins){
         factory.roll(noOfPins);
-        if(factory.isReady()){
+        if (factory.isReady()) {
             Frame frame = factory.createFrame();
             addSuccessor(frame);
-            frames.add(frame);
+            addToFrames(frame);
+            //if this is end of regular game, it switches factory
+            if(isEnding()){
+                factory = new FinishFrameFactory(frame);
+            }
         }
+
     }
 
     /**
@@ -54,6 +61,24 @@ public class BowlingGame {
     private void addSuccessor(Frame successor){
         for(Frame frame :frames){
             frame.addSuccessor(successor);
+        }
+    }
+
+    /**
+     * Is regular number of frames already depleted?
+     * @return is right now the game ending?
+     */
+    private boolean isEnding(){
+        return frames.size() == 10;
+    }
+
+    /**
+     * This method is there because of finish of the game, when frames over 10 are not added to the list
+     * @param frame
+     */
+    private void addToFrames(Frame frame){
+        if(frames.size()<10){
+            frames.add(frame);
         }
     }
 }

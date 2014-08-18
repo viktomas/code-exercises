@@ -42,5 +42,10 @@ public class BowlingGameTest {
         game.roll(6);
         game.roll(4);
         assertEquals(148,game.score());
+        game.roll(7);
+        game.roll(3);
+        assertEquals(165,game.score());
+        game.roll(3);
+        assertEquals(168,game.score());
     }
 }
