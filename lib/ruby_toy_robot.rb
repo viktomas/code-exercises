@@ -1,4 +1,10 @@
-Dir[File.dirname(__FILE__) + '/**/*.rb'].each {|file| require file }
+require_relative 'command'
+require_relative 'coordinate'
+require_relative 'lexer'
+require_relative 'parser'
+require_relative 'robot'
+require_relative 'table'
+
 
 #main module of gem ruby_toy_robot
 module RubyToyRobot
