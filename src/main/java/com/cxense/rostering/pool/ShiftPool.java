@@ -19,7 +19,7 @@ public class ShiftPool {
         return employees;
     }
 
-    public void setEmployees(Set<Employee> employees) {
-        this.employees = employees;
+    public void addEmployee(Employee employee){
+        employees.add(employee);
     }
 }

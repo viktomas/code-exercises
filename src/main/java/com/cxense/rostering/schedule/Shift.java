@@ -35,4 +35,28 @@ public class Shift {
     public Set<Employee> getEmployees(){
         return Collections.unmodifiableSet(employees);
     }
+
+    @Override
+    public String toString() {
+        return "Shift{" +
+                "employees=" + employees +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Shift shift = (Shift) o;
+
+        if (employees != null ? !employees.equals(shift.employees) : shift.employees != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return employees != null ? employees.hashCode() : 0;
+    }
 }
