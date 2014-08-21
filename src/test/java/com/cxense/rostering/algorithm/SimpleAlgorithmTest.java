@@ -6,6 +6,7 @@ import static com.cxense.rostering.parsing.EmployeePreference.*;
 
 import com.cxense.rostering.pool.DayPool;
 import com.cxense.rostering.pool.WeekPool;
+import com.cxense.rostering.schedule.WeekSchedule;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -19,31 +20,30 @@ import static com.cxense.rostering.employee.ExperienceLevel.*;
 /**
  * Created by vicek on 8/21/14.
  */
-public class SimpleAlgorithmTest {
+public class SimpleAlgorithmTest extends SimpleAlgorithm {
 
-    private WeekPool weekPool;
     private Set<Employee> employees;
+    private Employee phill;
+    private Employee dave;
+    private Employee sandra;
+    private Employee belinda;
+    private Employee roger;
+    private Employee stef;
+    private Employee cassie;
+    private Employee bill;
 
     @Before
     public void setUp(){
-        weekPool = new WeekPool();
-        Employee phill = new Employee("Pill", EXPERIENCED);
-        Employee dave = new Employee("Dave",      INEXPERIENCED);
-        Employee sandra = new Employee("Sandra",    INEXPERIENCED);
-        Employee belinda = new Employee("Belinda",   EXPERIENCED);
-        Employee roger = new Employee("Roger",     EXPERIENCED);
-        Employee stef = new Employee("Stef",      INEXPERIENCED);
-        Employee cassie = new Employee("Cassie",    EXPERIENCED);
-        Employee bill = new Employee("Bill",      INEXPERIENCED);
+        phill = new Employee("Pill", EXPERIENCED);
+        dave = new Employee("Dave",      INEXPERIENCED);
+        sandra = new Employee("Sandra",    INEXPERIENCED);
+        belinda = new Employee("Belinda",   EXPERIENCED);
+        roger = new Employee("Roger",     EXPERIENCED);
+        stef = new Employee("Stef",      INEXPERIENCED);
+        cassie = new Employee("Cassie",    EXPERIENCED);
+        bill = new Employee("Bill",      INEXPERIENCED);
         employees = new HashSet<>(Arrays.asList(phill, dave, sandra, belinda, roger, stef, cassie, bill));
-        addWorker(weekPool,phill,   EITHER, EITHER, EITHER, EITHER, EITHER, EITHER, EITHER);
-        addWorker(weekPool,dave,    NONE,   NONE,   EARLY,  EARLY,  EARLY,  EARLY,  EARLY);
-        addWorker(weekPool,sandra,  EITHER, EITHER, EITHER, EITHER, EITHER, NONE,   NONE);
-        addWorker(weekPool,belinda, LATE,   LATE,   LATE,   LATE,   NONE,   EITHER, EITHER);
-        addWorker(weekPool,roger,   EITHER, EITHER, NONE,   EARLY,  LATE,   NONE,   NONE);
-        addWorker(weekPool,stef,    NONE,   NONE,   EARLY,  EARLY,  EITHER, EITHER, EITHER);
-        addWorker(weekPool,cassie,  NONE,   NONE,   NONE,   EARLY,  EARLY,  NONE,   NONE);
-        addWorker(weekPool,bill,    LATE,   NONE,   LATE,   NONE,   NONE,   EITHER, EARLY);
+
 
 
     }
@@ -69,7 +69,17 @@ public class SimpleAlgorithmTest {
 
     @Test
     public void testAlgorithm(){
+        WeekPool weekPool = new WeekPool();
+        addWorker(weekPool,phill,   EITHER, EITHER, EITHER, EITHER, EITHER, EITHER, EITHER);
+        addWorker(weekPool,dave,    NONE,   NONE,   EARLY,  EARLY,  EARLY,  EARLY,  EARLY);
+        addWorker(weekPool,sandra,  EITHER, EITHER, EITHER, EITHER, EITHER, NONE,   NONE);
+        addWorker(weekPool,belinda, LATE,   LATE,   LATE,   LATE,   NONE,   EITHER, EITHER);
+        addWorker(weekPool,roger,   EITHER, EITHER, NONE,   EARLY,  LATE,   NONE,   NONE);
+        addWorker(weekPool,stef,    NONE,   NONE,   EARLY,  EARLY,  EITHER, EITHER, EITHER);
+        addWorker(weekPool,cassie,  NONE,   NONE,   NONE,   EARLY,  EARLY,  NONE,   NONE);
+        addWorker(weekPool,bill,    LATE,   NONE,   LATE,   NONE,   NONE,   EITHER, EARLY);
         Algorithm algorithm = new SimpleAlgorithm();
-        algorithm.run(weekPool,employees);
+        WeekSchedule schedule = algorithm.run(weekPool, employees);
+        assertNotNull(schedule);
     }
 }

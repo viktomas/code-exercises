@@ -14,6 +14,10 @@ public class WeekSchedule {
         this.days = new ArrayList<>();
     }
 
+    public WeekSchedule(List<DaySchedule> days) {
+        this.days = days;
+    }
+
     public List<DaySchedule> getDays() {
         return days;
     }
