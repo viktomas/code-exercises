@@ -32,15 +32,15 @@ Running this command will create a file `target/rostering-system-1.0-SNAPSHOT-ja
 
 Running app with stdin as an input (you can press `CTRL+D` to end the input):
 
-    java -jar robot-1.0-SNAPSHOT-jar-with-dependencies.jar
+    java -jar rostering-system-1.0-SNAPSHOT-jar-with-dependencies.jar
    
     #or
    
-    cat spec-example.csv | java -jar robot-1.0-SNAPSHOT-jar-with-dependencies.jar
+    cat spec-example.csv | java -jar rostering-system-1.0-SNAPSHOT-jar-with-dependencies.jar
    
 Or using a file with commands as an input:
 
-    java -jar robot-1.0-SNAPSHOT-jar-with-dependencies.jar -f [path to source file]
+    java -jar rostering-system-1.0-SNAPSHOT-jar-with-dependencies.jar -f [path to source file]
 
 Input
 -----

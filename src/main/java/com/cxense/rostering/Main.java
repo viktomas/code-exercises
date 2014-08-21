@@ -28,7 +28,7 @@ public class Main {
     private static final Option SOURCE_FILE = new Option("f",true,"Input file with employees' preferences.");
 
     /**
-     * Main method parses CLI arguments and creates spring context with robot app.
+     * Main method parses CLI arguments and runs rostering app.
      *
      * @param args command line arguments
      */
@@ -43,6 +43,10 @@ public class Main {
         Parser.Product product = parser.parse();
         Algorithm algorithm = new SimpleAlgorithm();
         WeekSchedule schedule = algorithm.run(product.weekPool, product.employees);
+        if(schedule == null){
+            System.err.print("Solution to the rostering problem doesn't exist.");
+            System.exit(1);
+        }
         Output output = new StandardOutput();
         ReportWriter reportWriter = new EmployerReportWriter();
         reportWriter.setOutput(output);

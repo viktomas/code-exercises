@@ -15,7 +15,7 @@ public interface Algorithm {
      *
      * @param weekPool pool with all employees' preferences
      * @param employees set of all employees
-     * @return scheduled week
+     * @return scheduled week if solution exists or null otherwise
      */
     WeekSchedule run(WeekPool weekPool, Set<Employee> employees);
 }

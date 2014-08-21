@@ -48,7 +48,7 @@ public class DaySchedule implements Optimal {
     /**
      * DaySchedule is valid only if nobody works twice that day.
      *
-     * @return is shedule valid?
+     * @return is schedule valid?
      */
     public boolean isValid(){
         Set<Employee> employees = new HashSet<>();
