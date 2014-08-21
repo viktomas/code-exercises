@@ -18,10 +18,13 @@ public class FileInput implements Input {
     /**
      * Constructor initializes a reader from a file.
      * @param file file which will be read
-     * @throws FileNotFoundException thrown if given file doesn't exist
      */
-    public FileInput(File file) throws FileNotFoundException {
-        reader = new BufferedReader(new FileReader(file));
+    public FileInput(File file){
+        try {
+            reader = new BufferedReader(new FileReader(file));
+        }catch(FileNotFoundException e){
+            throw new InputException("Given file doesn't exist.");
+        }
     }
 
     @Override

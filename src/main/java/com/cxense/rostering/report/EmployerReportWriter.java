@@ -35,7 +35,7 @@ public class EmployerReportWriter implements ReportWriter {
         StringBuilder early = new StringBuilder();
         StringBuilder late = new StringBuilder();
         early.append("Early |");
-        early.append("Late |");
+        late.append("Late |");
         for (DaySchedule daySchedule : weekSchedule.getDays()) {
             /*
             For each day this ugly masquerade
