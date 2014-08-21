@@ -2,6 +2,7 @@ package com.cxense.rostering.pool;
 
 import com.cxense.rostering.employee.Employee;
 
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -10,8 +11,8 @@ import java.util.Set;
 public class ShiftPool {
     private Set<Employee> employees;
 
-    public ShiftPool(Set<Employee> employees) {
-        this.employees = employees;
+    public ShiftPool() {
+        this.employees = new HashSet<>();
     }
 
     public Set<Employee> getEmployees() {

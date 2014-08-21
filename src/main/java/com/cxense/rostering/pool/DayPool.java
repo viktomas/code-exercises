@@ -4,8 +4,8 @@ package com.cxense.rostering.pool;
  * Created by vicek on 8/21/14.
  */
 public class DayPool {
-    private ShiftPool earlyShift;
-    private ShiftPool lateShift;
+    private ShiftPool earlyShift = new ShiftPool();
+    private ShiftPool lateShift = new ShiftPool();
 
     public ShiftPool getEarlyShift() {
         return earlyShift;
