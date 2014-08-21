@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Shedule for one day. It has two shifts.
+ * Schedule for one day. It has two shifts.
  */
 public class DaySchedule implements Optimal {
     /**
