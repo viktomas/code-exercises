@@ -56,4 +56,32 @@ public class DaySchedule {
         employees.addAll(lateShift.getEmployees());
         return employees.size() == 4;
     }
+
+    @Override
+    public String toString() {
+        return "DaySchedule{" +
+                "earlyShift=" + earlyShift +
+                ", lateShift=" + lateShift +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        DaySchedule that = (DaySchedule) o;
+
+        if (earlyShift != null ? !earlyShift.equals(that.earlyShift) : that.earlyShift != null) return false;
+        if (lateShift != null ? !lateShift.equals(that.lateShift) : that.lateShift != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = earlyShift != null ? earlyShift.hashCode() : 0;
+        result = 31 * result + (lateShift != null ? lateShift.hashCode() : 0);
+        return result;
+    }
 }
