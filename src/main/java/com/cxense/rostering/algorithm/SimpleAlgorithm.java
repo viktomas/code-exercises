@@ -42,10 +42,14 @@ public class SimpleAlgorithm implements Algorithm {
      * @return schedule if solution is found or null if not
      */
     private WeekSchedule iterate(int dayIndex, List<DaySchedule> weekTip, List<List<DaySchedule>> stateSpace, Set<Employee> employees) {
+        WeekSchedule nonOptimalSchedule = null;
         List<DaySchedule> possibleDays = stateSpace.get(dayIndex);
+        //iterate trough all possible day combinations for my day determined by dayIndex
         for (DaySchedule possibleDay : possibleDays) {
+            //inner tip which will be sent to recursive iterate
             List<DaySchedule> innerTip = new LinkedList<>(weekTip);
             innerTip.add(possibleDay);
+            //did we reach whole week?
             if(innerTip.size() == WeekPool.NMB_OF_DAYS){
                 if(isSolution(innerTip, employees)){
                     WeekSchedule weekSchedule = new WeekSchedule(innerTip);
@@ -56,11 +60,16 @@ public class SimpleAlgorithm implements Algorithm {
             }else{
                 WeekSchedule weekSchedule = iterate(dayIndex+1, innerTip, stateSpace, employees);
                 if (weekSchedule!=null){
-                    return weekSchedule;
+                    //solution was returned
+                    if(weekSchedule.isOptimal()){
+                        return weekSchedule;
+                    }else{
+                        nonOptimalSchedule = weekSchedule;
+                    }
                 }
             }
         }
-        return null;
+        return nonOptimalSchedule;
     }
 
     /**

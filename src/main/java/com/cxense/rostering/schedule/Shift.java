@@ -9,7 +9,7 @@ import java.util.Set;
 /**
  * One scheduled shift with 2 employees.
  */
-public class Shift {
+public class Shift implements Optimal {
     /**
      * Employees int the shift.
      */
@@ -34,6 +34,24 @@ public class Shift {
      */
     public Set<Employee> getEmployees(){
         return Collections.unmodifiableSet(employees);
+    }
+
+    @Override
+    public boolean isOptimal() {
+        //OPTIMIZE might be optimized with computation in the constructor
+        boolean experienced = false;
+        boolean inexperienced = false;
+        for (Employee employee : employees) {
+            switch(employee.getExperience()){
+                case EXPERIENCED:
+                    experienced = true;
+                    break;
+                case INEXPERIENCED:
+                    inexperienced = true;
+                    break;
+            }
+        }
+        return experienced && inexperienced;
     }
 
     @Override

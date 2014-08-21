@@ -8,7 +8,7 @@ import java.util.Set;
 /**
  * Shedule for one day. It has two shifts.
  */
-public class DaySchedule {
+public class DaySchedule implements Optimal {
     /**
      * Early shift during the day
      */
@@ -55,6 +55,11 @@ public class DaySchedule {
         employees.addAll(earlyShift.getEmployees());
         employees.addAll(lateShift.getEmployees());
         return employees.size() == 4;
+    }
+
+    @Override
+    public boolean isOptimal() {
+        return earlyShift.isOptimal() && lateShift.isOptimal();
     }
 
     @Override

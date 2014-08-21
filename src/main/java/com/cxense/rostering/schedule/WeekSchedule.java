@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Schedule for whole week
  */
-public class WeekSchedule {
+public class WeekSchedule implements Optimal {
 
     /**
      * List with scheduled days in the week.
@@ -34,6 +34,16 @@ public class WeekSchedule {
      */
     public List<DaySchedule> getDays() {
         return days;
+    }
+
+    @Override
+    public boolean isOptimal() {
+        for (DaySchedule day : days) {
+            if(!day.isOptimal()){
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
