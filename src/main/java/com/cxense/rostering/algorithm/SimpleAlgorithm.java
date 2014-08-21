@@ -95,7 +95,7 @@ public class SimpleAlgorithm implements Algorithm {
     private void addCount(Shift shift, Map<Employee,Integer> shiftCount){
         for (Employee employee : shift.getEmployees()) {
             int count = shiftCount.get(employee);
-            shiftCount.put(employee,count++);
+            shiftCount.put(employee,count + 1);
         }
     }
 }

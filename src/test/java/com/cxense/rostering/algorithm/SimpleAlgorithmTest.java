@@ -31,6 +31,7 @@ public class SimpleAlgorithmTest extends SimpleAlgorithm {
     private Employee stef;
     private Employee cassie;
     private Employee bill;
+    private Employee saviour;
 
     @Before
     public void setUp(){
@@ -42,6 +43,7 @@ public class SimpleAlgorithmTest extends SimpleAlgorithm {
         stef = new Employee("Stef",      INEXPERIENCED);
         cassie = new Employee("Cassie",    EXPERIENCED);
         bill = new Employee("Bill",      INEXPERIENCED);
+        saviour = new Employee("Saviour",      EXPERIENCED);
         employees = new HashSet<>(Arrays.asList(phill, dave, sandra, belinda, roger, stef, cassie, bill));
 
 
@@ -68,7 +70,7 @@ public class SimpleAlgorithmTest extends SimpleAlgorithm {
     }
 
     @Test
-    public void testAlgorithm(){
+    public void testAlgorithm1(){
         WeekPool weekPool = new WeekPool();
         addWorker(weekPool,phill,   EITHER, EITHER, EITHER, EITHER, EITHER, EITHER, EITHER);
         addWorker(weekPool,dave,    NONE,   NONE,   EARLY,  EARLY,  EARLY,  EARLY,  EARLY);
@@ -81,5 +83,22 @@ public class SimpleAlgorithmTest extends SimpleAlgorithm {
         Algorithm algorithm = new SimpleAlgorithm();
         WeekSchedule schedule = algorithm.run(weekPool, employees);
         assertNotNull(schedule);
+    }
+
+    @Test
+    public void testAlgorithm2(){
+        WeekPool weekPool = new WeekPool();
+        addWorker(weekPool,phill,   EARLY,	NONE,	NONE,	LATE,	EARLY,	NONE,	NONE);
+        addWorker(weekPool,dave,    EARLY,	NONE,	NONE,	LATE,	EARLY,	NONE,	NONE);
+        addWorker(weekPool,sandra,  LATE,	EARLY,	NONE,	NONE,	LATE,	NONE,	EARLY);
+        addWorker(weekPool,belinda, LATE,	EARLY,	NONE,	NONE,	LATE,	NONE,	EARLY);
+        addWorker(weekPool,roger,   NONE,	LATE,	EARLY,	NONE,	NONE,	EARLY,	LATE);
+        addWorker(weekPool,stef,    NONE,	LATE,	EARLY,	NONE,	NONE,	EARLY,	LATE);
+        addWorker(weekPool,cassie,  NONE,	NONE,	LATE,	EARLY,	NONE,	LATE,	NONE);
+        addWorker(weekPool,bill,    NONE,	NONE,	LATE,	EARLY,	NONE,	LATE,	NONE);
+        Algorithm algorithm = new SimpleAlgorithm();
+        WeekSchedule schedule = algorithm.run(weekPool, employees);
+        assertNotNull(schedule);
+
     }
 }
