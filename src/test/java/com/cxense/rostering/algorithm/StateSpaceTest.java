@@ -33,6 +33,9 @@ public class StateSpaceTest extends StateSpace {
     }
 
 
+    /**
+     * Test how possible shifts are build from set of employees.
+     */
     @Test
     public void testPossibleShifts(){
         ShiftPool pool = new ShiftPool();
@@ -52,6 +55,9 @@ public class StateSpaceTest extends StateSpace {
         assertEquals(6, possibleShifts.size());
     }
 
+    /**
+     * Test how possible days are built from day pool
+     */
     @Test
     public void testThatPossibleDaysCombinesShifts(){
         Employee hank = new Employee("Hank", ExperienceLevel.INEXPERIENCED);
@@ -67,6 +73,9 @@ public class StateSpaceTest extends StateSpace {
         assertEquals(9, possibleShedules.size());
     }
 
+    /**
+     * tests that building possible shifts combination takes into account, that employee can work only once a day
+     */
     @Test
     public void testThatEmployeeCannotWorkTwice(){
         DayPool dayPool = new DayPool();
